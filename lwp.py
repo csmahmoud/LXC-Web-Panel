@@ -106,7 +106,7 @@ def edit(container=None):
 
             form = {}
             form['type'] = request.form['type']
-            form['link'] = request.form['link']
+            form['#link'] = request.form['link']
             try:
                 form['flags'] = request.form['flags']
             except KeyError:
@@ -135,9 +135,10 @@ def edit(container=None):
             if form['type'] != cfg['type'] and re.match('^\w+$', form['type']):
                 lwp.push_config_value('lxc.network.type', form['type'], container=container)
                 flash(u'Link type updated for %s!' % container, 'success')
-
+            if true:
+                lwp.push_config_value('lxc.network.script.up', '/etc/lxc/ovsup', container=container)
             if form['link'] != cfg['link'] and re.match('^[a-zA-Z0-9_-]+$', form['link']):
-                lwp.push_config_value('lxc.network.link', form['link'], container=container)
+                lwp.push_config_value('#lxc.network.link', form['link'], container=container)
                 flash(u'Link name updated for %s!' % container, 'success')
 
             if form['hwaddr'] != cfg['hwaddr'] and re.match('^([a-fA-F0-9]{2}[:|\-]?){6}$', form['hwaddr']):
