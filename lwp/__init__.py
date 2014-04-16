@@ -13,7 +13,7 @@ class CalledProcessError(Exception): pass
 
 cgroup = {}
 cgroup['type'] = 'lxc.network.type'
-cgroup['link'] = '#lxc.network.link'
+cgroup['link'] = 'lxc.network.link'
 cgroup['flags'] = 'lxc.network.flags'
 cgroup['hwaddr'] = 'lxc.network.hwaddr'
 cgroup['rootfs'] = 'lxc.rootfs'
